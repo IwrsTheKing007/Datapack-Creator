@@ -15,7 +15,7 @@ def create_datapack(path, name):
     
     mcmeta_path = os.path.join(path+'\\'+name, 'pack.mcmeta')
     pack_mcmeta = open(mcmeta_path, 'w+')
-    mcmeta_content = '{\n  "pack": {\n      "pack_format": ' + pack_format + ',\n      "description": "' + description + '"\n   }\n}'
+    mcmeta_content = '{\n    "pack": {\n        "pack_format": ' + pack_format + ',\n        "description": "' + description + '"\n    }\n}'
     pack_mcmeta.write(mcmeta_content)
     pack_mcmeta.close()
     
@@ -25,13 +25,13 @@ def create_datapack(path, name):
     
     load_path = os.path.join(path + '\\' + name + '\\data\\minecraft\\tags\\functions', 'load.json')
     load = open(load_path, 'w+')
-    load_contents = '{\n   "replace": false,\n   "values": [\n      "' + namespace + ':load"  \n   ]\n}'
+    load_contents = '{\n    "replace": false,\n    "values": [\n        "' + namespace + ':load"\n    ]\n}'
     load.write(load_contents)
     load.close()
     
     tick_path = os.path.join(path + '\\' + name + '\\data\\minecraft\\tags\\functions', 'tick.json')
     tick = open(tick_path, 'w+')
-    tick_contents = '{\n   "replace": false,\n   "values": [\n      "' + namespace + ':tick"  \n   ]\n}'
+    tick_contents = '{\n    "replace": false,\n    "values": [\n        "' + namespace + ':tick"\n    ]\n}'
     tick.write(tick_contents)
     tick.close()
     
