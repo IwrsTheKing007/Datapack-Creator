@@ -1,5 +1,9 @@
 import customtkinter as ctk
 import os
+import webbrowser
+
+def pack_format_link():
+    webbrowser.open_new("https://minecraft.wiki/w/Pack_format#List_of_data_pack_formats")
 
 def browse_button():
     filename = ctk.filedialog.askdirectory()
@@ -93,6 +97,9 @@ pack_format_text = ctk.CTkLabel(frame, text = "Pack Format", font = ('consolas',
 pack_format_text.place(relx = 0.02, rely = 0.40)
 pack_format = ctk.CTkEntry(frame, width = 40, font = ("consolas", 15))
 pack_format.place(relx = 0.19, rely = 0.40)
+
+pack_format_button = ctk.CTkButton(frame, command = pack_format_link, text = "Check Pack Format(link)", font = ('consolas', 15), text_color = ('black', 'white'))
+pack_format_button.place(relx = 0.27, rely = 0.40)
 
 description_text = ctk.CTkLabel(frame, text = "Description", font = ('consolas', 15, 'bold'), text_color = ('black', 'white'))
 description_text.place(relx = 0.02, rely = 0.50)
