@@ -53,7 +53,7 @@ def check_name():
     try:
         os.makedirs(folder_path.get() + '\\' + name.get(), exist_ok=False)
     except FileExistsError:
-        name_exists.place(relx = 0.55, rely = 0.15)
+        name_exists.place(relx = 0.55, rely = 0.20)
         return
     create_datapack()
 
