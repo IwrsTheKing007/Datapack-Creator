@@ -14,27 +14,27 @@ def pack_mcmeta():
     pack_mcmeta.close()
     
 def function_tags():
-    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions')
-    load_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions', 'load.json')
+    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function')
+    load_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function', 'load.json')
     load = open(load_path, 'w+')
     load_contents = '{\n    "replace": false,\n    "values": [\n        "' + namespace.get() + ':load"\n    ]\n}'
     load.write(load_contents)
     load.close()
     
-    tick_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions', 'tick.json')
+    tick_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function', 'tick.json')
     tick = open(tick_path, 'w+')
     tick_contents = '{\n    "replace": false,\n    "values": [\n        "' + namespace.get() + ':tick"\n    ]\n}'
     tick.write(tick_contents)
     tick.close()
 
 def tick_load_functions():
-    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\functions')
-    load_function_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\functions', 'load.mcfunction')
+    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\function')
+    load_function_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\function', 'load.mcfunction')
     load_function = open(load_function_path, 'x')
     load_function_contents = 'tellraw @a "Reloaded!"\n\n'
     load_function.write(load_function_contents)
     load_function.close()
-    tick_function_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\functions', 'tick.mcfunction')
+    tick_function_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\' + namespace.get() + '\\function', 'tick.mcfunction')
     tick_function = open(tick_function_path, 'x')
     tick_function.close()
 
