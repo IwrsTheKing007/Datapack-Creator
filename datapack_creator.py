@@ -23,14 +23,16 @@ def create_datapack():
         function_tags()
     if advancement_checkbox.get() == 1:
         advancement(namespace_path)
+    if tags_checkbox.get() == 1:
+        tags(namespace_path)
+    if predicate_checkbox.get() == 1:
+        predicate(namespace_path)
     if loot_table_checkbox.get() == 1:
         loot_table(namespace_path)
     if recipe_checkbox.get() == 1:
         recipe(namespace_path)
     if enchantment_checkbox.get() == 1:
         enchantment(namespace_path)
-    if tags_checkbox.get() == 1:
-        tags(namespace_path)
 
 def pack_mcmeta():
     mcmeta_path = os.path.join(folder_path.get() + '\\' + name.get(), 'pack.mcmeta')
@@ -94,6 +96,12 @@ def function_tags():
         
 def advancement(namespace_path):
     os.makedirs(namespace_path + '\\advancement')
+    
+def tags(namespace_path):
+    os.makedirs(namespace_path + '\\tags')
+    
+def predicate(namespace_path):
+    os.makedirs(namespace_path + '\\predicate')
 
 def loot_table(namespace_path):
     os.makedirs(namespace_path + '\\loot_table')
@@ -103,9 +111,6 @@ def recipe(namespace_path):
 
 def enchantment(namespace_path):
     os.makedirs(namespace_path + '\\enchantment')
-    
-def tags(namespace_path):
-    os.makedirs(namespace_path + '\\tags')
 
 def check_name():
     try:
@@ -190,6 +195,12 @@ tick_json_checkbox.pack(pady = 3, anchor = 'nw')
 advancement_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "advancement", font = ('consolas', 15, 'bold'))
 advancement_checkbox.pack(pady = 3, anchor = 'nw')
 
+tags_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "tags", font = ('consolas', 15, 'bold'))
+tags_checkbox.pack(pady = 3, anchor = 'nw')
+
+predicate_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "predicate", font = ('consolas', 15, 'bold'))
+predicate_checkbox.pack(pady = 3, anchor = 'nw')
+
 loot_table_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "loot_table", font = ('consolas', 15, 'bold'))
 loot_table_checkbox.pack(pady = 3, anchor = 'nw')
 
@@ -198,8 +209,5 @@ recipe_checkbox.pack(pady = 3, anchor = 'nw')
 
 enchantment_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "enchantment", font = ('consolas', 15, 'bold'))
 enchantment_checkbox.pack(pady = 3, anchor = 'nw')
-
-tags_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "tags", font = ('consolas', 15, 'bold'))
-tags_checkbox.pack(pady = 3, anchor = 'nw')
 
 root.mainloop()
