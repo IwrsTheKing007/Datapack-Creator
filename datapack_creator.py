@@ -27,8 +27,6 @@ def create_datapack():
         loot_table(namespace_path)
     if recipe_checkbox.get() == 1:
         recipe(namespace_path)
-    if enchantment_checkbox.get() == 1:
-        enchantment(namespace_path)
     if tags_checkbox.get() == 1:
         tags(namespace_path)
 
@@ -49,23 +47,23 @@ def namespace_folder(namespace_path):
     os.makedirs(namespace_path)
     
 def load_tick_functions(namespace_path):
-    os.makedirs(namespace_path + '\\function')
+    os.makedirs(namespace_path + '\\functions')
     if load_json_checkbox.get() == 1:
-        load_function_path = os.path.join(namespace_path + '\\function', 'load.mcfunction')
+        load_function_path = os.path.join(namespace_path + '\\functions', 'load.mcfunction')
         load_function = open(load_function_path, 'x')
         load_function_contents = 'tellraw @a "Reloaded!"\n\n'
         load_function.write(load_function_contents)
         load_function.close()
     
     if tick_json_checkbox.get() == 1:
-        tick_function_path = os.path.join(namespace_path + '\\function', 'tick.mcfunction')
+        tick_function_path = os.path.join(namespace_path + '\\functions', 'tick.mcfunction')
         tick_function = open(tick_function_path, 'x')
         tick_function.close()
         
 def function_tags():
-    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function')
+    os.makedirs(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions')
     if load_json_checkbox.get() == 1:
-        load_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function', 'load.json')
+        load_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions', 'load.json')
         load = open(load_path, 'w+')
         namespace_load = namespace.get() + ":load"
         load_json = {
@@ -79,7 +77,7 @@ def function_tags():
         load.close()
     
     if tick_json_checkbox.get() == 1:
-        tick_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\function', 'tick.json')
+        tick_path = os.path.join(folder_path.get() + '\\' + name.get() + '\\data\\minecraft\\tags\\functions', 'tick.json')
         tick = open(tick_path, 'w+')
         namespace_tick = namespace.get() + ":tick"
         tick_json = {
@@ -93,16 +91,13 @@ def function_tags():
         tick.close()
         
 def advancement(namespace_path):
-    os.makedirs(namespace_path + '\\advancement')
+    os.makedirs(namespace_path + '\\advancements')
 
 def loot_table(namespace_path):
-    os.makedirs(namespace_path + '\\loot_table')
+    os.makedirs(namespace_path + '\\loot_tables')
 
 def recipe(namespace_path):
-    os.makedirs(namespace_path + '\\recipe')
-
-def enchantment(namespace_path):
-    os.makedirs(namespace_path + '\\enchantment')
+    os.makedirs(namespace_path + '\\recipes')
     
 def tags(namespace_path):
     os.makedirs(namespace_path + '\\tags')
@@ -187,17 +182,14 @@ tick_json_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "tick.json", font = 
 tick_json_checkbox.select()
 tick_json_checkbox.pack(pady = 3, anchor = 'nw')
 
-advancement_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "advancement", font = ('consolas', 15, 'bold'))
+advancement_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "advancements", font = ('consolas', 15, 'bold'))
 advancement_checkbox.pack(pady = 3, anchor = 'nw')
 
-loot_table_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "loot_table", font = ('consolas', 15, 'bold'))
+loot_table_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "loot_tables", font = ('consolas', 15, 'bold'))
 loot_table_checkbox.pack(pady = 3, anchor = 'nw')
 
-recipe_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "recipe", font = ('consolas', 15, 'bold'))
+recipe_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "recipes", font = ('consolas', 15, 'bold'))
 recipe_checkbox.pack(pady = 3, anchor = 'nw')
-
-enchantment_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "enchantment", font = ('consolas', 15, 'bold'))
-enchantment_checkbox.pack(pady = 3, anchor = 'nw')
 
 tags_checkbox = ctk.CTkCheckBox(checkbox_frame, text = "tags", font = ('consolas', 15, 'bold'))
 tags_checkbox.pack(pady = 3, anchor = 'nw')
